@@ -89,7 +89,7 @@ To get familiar with the API you can point directly to the downloaded dataset.
 #### Initialization
 First, we need to create a `DataSet` object that searches for sequences.
 ```
->>> from pandaset import DataSet
+>>> from pandaset_devkit import DataSet
 >>> dataset = DataSet('/data/pandaset')
 ```
 Afterwards we can list all the sequence IDs that have been found in the data folder.
@@ -115,7 +115,7 @@ API Reference: [DataSet class](https://scaleapi.github.io/pandaset-devkit/datase
 
 #### Loading
 The devkit will automatically search the sequence directory for available sensor data, metadata and annotations and prepare the directory to be loaded explicitly. At this point no point clouds or images have been loaded into memory.
-To execute the loading of sensor data and metadata into memory, we simply call the `load()` method on the sequence object. This will load all available sensor data and metadata. 
+To execute the loading of sensor data and metadata into memory, we simply call the `load()` method on the sequence object. This will load all available sensor data and metadata.
 ```
 >>> seq002.load()
 ```
@@ -135,7 +135,7 @@ The LiDAR point clouds are stored as [pandas.DataFrames](https://pandas.pydata.o
 >>> pc0 = seq002.lidar[0]
 >>> print(pc0)
                  x           y         z     i             t  d
-index                                                          
+index
 0       -75.131138  -79.331690  3.511804   7.0  1.557540e+09  0
 1      -112.588306 -118.666002  1.423499  31.0  1.557540e+09  0
 2       -42.085902  -44.384891  0.593491   7.0  1.557540e+09  0
@@ -210,7 +210,7 @@ Since the applied filter operation leaves the original row index intact for each
 (166768, 6)
 >>> print(pc0 == pc0_concat)
            x     y     z     i     t     d
-index                                     
+index
 0       True  True  True  True  True  True
 1       True  True  True  True  True  True
 2       True  True  True  True  True  True
@@ -260,7 +260,7 @@ Again, the objects can be sliced the same way as the `Camera` object:
 >>> pcs = camera_obj[sl]
 >>> poses = camera_obj.poses[sl]
 >>> timestamps = camera_obj.timestamps[sl]
->>> intrinsics = camera_obj.intrinsics 
+>>> intrinsics = camera_obj.intrinsics
 ```
 
 API Reference: [Camera class](https://scaleapi.github.io/pandaset-devkit/sensors.html#pandaset.sensors.Camera)
